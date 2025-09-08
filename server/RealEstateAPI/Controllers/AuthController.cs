@@ -41,9 +41,6 @@ namespace RealEstateAPI.Controllers
                 LastName = model.LastName,
                 Email = model.Email,
                 UserName = model.Email,
-                PhoneNumber = model.PhoneNumber,
-                Bio = model.Bio,
-                ProfileImageUrl = model.ProfileImageUrl,
                 CreatedAt = DateTime.UtcNow,
                 IsActive = true
             };
@@ -52,8 +49,8 @@ namespace RealEstateAPI.Controllers
 
             if (result.Succeeded)
             {
-                // Add default role
-                await _userManager.AddToRoleAsync(user, "User");
+                // TODO: Add default role when roles are created
+                // await _userManager.AddToRoleAsync(user, "User");
 
                 var token = await GenerateJwtToken(user);
                 return Ok(new { Token = token, User = new UserDto
@@ -113,6 +110,23 @@ namespace RealEstateAPI.Controllers
             }
 
             return Unauthorized("Invalid credentials");
+        }
+
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout([FromBody] LogoutDto model)
+        {
+            try
+            {
+                // For JWT tokens, we can't invalidate them server-side without a token blacklist
+                // In a production app, you'd want to implement token blacklisting or use shorter expiry times
+                // For now, we'll just return success since the client will remove the token from storage
+                
+                return Ok(new { Message = "Logged out successfully" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Message = "Logout failed", Error = ex.Message });
+            }
         }
 
         private async Task<string> GenerateJwtToken(ApplicationUser user)

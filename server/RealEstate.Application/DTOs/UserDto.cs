@@ -38,15 +38,6 @@ namespace RealEstate.Application.DTOs
         [Required]
         [Compare("Password")]
         public string ConfirmPassword { get; set; } = string.Empty;
-
-        [Phone]
-        public string? PhoneNumber { get; set; }
-
-        [MaxLength(500)]
-        public string? Bio { get; set; }
-
-        [MaxLength(200)]
-        public string? ProfileImageUrl { get; set; }
     }
 
     public class LoginDto

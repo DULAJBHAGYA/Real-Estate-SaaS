@@ -8,7 +8,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": "https://localhost:7000/api",
+      "value": "http://localhost:5052/api",
       "type": "string"
     },
     {
@@ -43,7 +43,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"TestPass123!\",\n  \"confirmPassword\": \"TestPass123!\",\n  \"phoneNumber\": \"+1234567890\",\n  \"bio\": \"First time buyer looking for a home\",\n  \"profileImageUrl\": \"https://example.com/profile.jpg\"\n}"
+              "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"TestPass123!\",\n  \"confirmPassword\": \"TestPass123!\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/auth/register",
