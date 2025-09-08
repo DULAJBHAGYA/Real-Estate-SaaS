@@ -1,0 +1,208 @@
+2025-09-08 18:11:25.364 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE DATABASE `RealEstateSaaS`;
+2025-09-08 18:11:25.459 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER DATABASE CHARACTER SET utf8mb4;
+2025-09-08 18:11:25.470 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `AspNetRoles` (
+    `Id` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    `Name` varchar(256) CHARACTER SET utf8mb4 NULL,
+    `NormalizedName` varchar(256) CHARACTER SET utf8mb4 NULL,
+    `ConcurrencyStamp` longtext CHARACTER SET utf8mb4 NULL,
+    CONSTRAINT `PK_AspNetRoles` PRIMARY KEY (`Id`)
+) CHARACTER SET=utf8mb4;
+2025-09-08 18:11:25.475 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `AspNetUsers` (
+    `Id` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    `FirstName` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `LastName` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `Bio` varchar(500) CHARACTER SET utf8mb4 NULL,
+    `ProfileImageUrl` varchar(200) CHARACTER SET utf8mb4 NULL,
+    `CreatedAt` datetime(6) NOT NULL,
+    `LastLoginAt` datetime(6) NULL,
+    `IsActive` tinyint(1) NOT NULL,
+    `UserName` varchar(256) CHARACTER SET utf8mb4 NULL,
+    `NormalizedUserName` varchar(256) CHARACTER SET utf8mb4 NULL,
+    `Email` varchar(256) CHARACTER SET utf8mb4 NULL,
+    `NormalizedEmail` varchar(256) CHARACTER SET utf8mb4 NULL,
+    `EmailConfirmed` tinyint(1) NOT NULL,
+    `PasswordHash` longtext CHARACTER SET utf8mb4 NULL,
+    `SecurityStamp` longtext CHARACTER SET utf8mb4 NULL,
+    `ConcurrencyStamp` longtext CHARACTER SET utf8mb4 NULL,
+    `PhoneNumber` longtext CHARACTER SET utf8mb4 NULL,
+    `PhoneNumberConfirmed` tinyint(1) NOT NULL,
+    `TwoFactorEnabled` tinyint(1) NOT NULL,
+    `LockoutEnd` datetime(6) NULL,
+    `LockoutEnabled` tinyint(1) NOT NULL,
+    `AccessFailedCount` int NOT NULL,
+    CONSTRAINT `PK_AspNetUsers` PRIMARY KEY (`Id`)
+) CHARACTER SET=utf8mb4;
+2025-09-08 18:11:25.481 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `AspNetRoleClaims` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `RoleId` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    `ClaimType` longtext CHARACTER SET utf8mb4 NULL,
+    `ClaimValue` longtext CHARACTER SET utf8mb4 NULL,
+    CONSTRAINT `PK_AspNetRoleClaims` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_AspNetRoleClaims_AspNetRoles_RoleId` FOREIGN KEY (`RoleId`) REFERENCES `AspNetRoles` (`Id`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+2025-09-08 18:11:25.484 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `AspNetUserClaims` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `UserId` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    `ClaimType` longtext CHARACTER SET utf8mb4 NULL,
+    `ClaimValue` longtext CHARACTER SET utf8mb4 NULL,
+    CONSTRAINT `PK_AspNetUserClaims` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_AspNetUserClaims_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+2025-09-08 18:11:25.487 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `AspNetUserLogins` (
+    `LoginProvider` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    `ProviderKey` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    `ProviderDisplayName` longtext CHARACTER SET utf8mb4 NULL,
+    `UserId` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_AspNetUserLogins` PRIMARY KEY (`LoginProvider`, `ProviderKey`),
+    CONSTRAINT `FK_AspNetUserLogins_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+2025-09-08 18:11:25.491 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `AspNetUserRoles` (
+    `UserId` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    `RoleId` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_AspNetUserRoles` PRIMARY KEY (`UserId`, `RoleId`),
+    CONSTRAINT `FK_AspNetUserRoles_AspNetRoles_RoleId` FOREIGN KEY (`RoleId`) REFERENCES `AspNetRoles` (`Id`) ON DELETE CASCADE,
+    CONSTRAINT `FK_AspNetUserRoles_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+2025-09-08 18:11:25.495 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `AspNetUserTokens` (
+    `UserId` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    `LoginProvider` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    `Name` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    `Value` longtext CHARACTER SET utf8mb4 NULL,
+    CONSTRAINT `PK_AspNetUserTokens` PRIMARY KEY (`UserId`, `LoginProvider`, `Name`),
+    CONSTRAINT `FK_AspNetUserTokens_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+2025-09-08 18:11:25.500 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Properties` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Title` varchar(200) CHARACTER SET utf8mb4 NOT NULL,
+    `Description` varchar(2000) CHARACTER SET utf8mb4 NOT NULL,
+    `Address` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `City` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `State` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `ZipCode` varchar(20) CHARACTER SET utf8mb4 NOT NULL,
+    `Country` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `Price` decimal(18,2) NOT NULL,
+    `PropertyType` int NOT NULL,
+    `Bedrooms` int NOT NULL,
+    `Bathrooms` int NOT NULL,
+    `SquareFootage` decimal(10,2) NOT NULL,
+    `LotSize` decimal(10,2) NOT NULL,
+    `YearBuilt` int NOT NULL,
+    `Status` int NOT NULL,
+    `IsFeatured` tinyint(1) NOT NULL,
+    `IsPetFriendly` tinyint(1) NOT NULL,
+    `HasGarage` tinyint(1) NOT NULL,
+    `HasPool` tinyint(1) NOT NULL,
+    `HasGarden` tinyint(1) NOT NULL,
+    `Amenities` varchar(1000) CHARACTER SET utf8mb4 NULL,
+    `Tags` varchar(1000) CHARACTER SET utf8mb4 NULL,
+    `Latitude` double NULL,
+    `Longitude` double NULL,
+    `CreatedAt` datetime(6) NOT NULL,
+    `UpdatedAt` datetime(6) NOT NULL,
+    `AgentId` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_Properties` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_Properties_AspNetUsers_AgentId` FOREIGN KEY (`AgentId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE RESTRICT
+) CHARACTER SET=utf8mb4;
+2025-09-08 18:11:25.505 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `Appointments` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `ScheduledDate` datetime(6) NOT NULL,
+    `StartTime` time(6) NOT NULL,
+    `EndTime` time(6) NOT NULL,
+    `Notes` varchar(500) CHARACTER SET utf8mb4 NULL,
+    `Status` int NOT NULL,
+    `ContactPhone` varchar(200) CHARACTER SET utf8mb4 NULL,
+    `ContactEmail` varchar(200) CHARACTER SET utf8mb4 NULL,
+    `CreatedAt` datetime(6) NOT NULL,
+    `UpdatedAt` datetime(6) NOT NULL,
+    `PropertyId` int NOT NULL,
+    `ClientId` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    `AgentId` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    CONSTRAINT `PK_Appointments` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_Appointments_AspNetUsers_AgentId` FOREIGN KEY (`AgentId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE RESTRICT,
+    CONSTRAINT `FK_Appointments_AspNetUsers_ClientId` FOREIGN KEY (`ClientId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE RESTRICT,
+    CONSTRAINT `FK_Appointments_Properties_PropertyId` FOREIGN KEY (`PropertyId`) REFERENCES `Properties` (`Id`) ON DELETE RESTRICT
+) CHARACTER SET=utf8mb4;
+2025-09-08 18:11:25.508 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `PropertyImages` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `ImageUrl` varchar(500) CHARACTER SET utf8mb4 NOT NULL,
+    `AltText` varchar(200) CHARACTER SET utf8mb4 NULL,
+    `ImageType` varchar(50) CHARACTER SET utf8mb4 NULL,
+    `DisplayOrder` int NOT NULL,
+    `IsActive` tinyint(1) NOT NULL,
+    `CreatedAt` datetime(6) NOT NULL,
+    `PropertyId` int NOT NULL,
+    CONSTRAINT `PK_PropertyImages` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_PropertyImages_Properties_PropertyId` FOREIGN KEY (`PropertyId`) REFERENCES `Properties` (`Id`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+2025-09-08 18:11:25.515 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE `PropertyViews` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `ViewedAt` datetime(6) NOT NULL,
+    `IpAddress` varchar(45) CHARACTER SET utf8mb4 NULL,
+    `UserAgent` varchar(500) CHARACTER SET utf8mb4 NULL,
+    `Referrer` varchar(100) CHARACTER SET utf8mb4 NULL,
+    `PropertyId` int NOT NULL,
+    `UserId` varchar(255) CHARACTER SET utf8mb4 NULL,
+    CONSTRAINT `PK_PropertyViews` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_PropertyViews_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE SET NULL,
+    CONSTRAINT `FK_PropertyViews_Properties_PropertyId` FOREIGN KEY (`PropertyId`) REFERENCES `Properties` (`Id`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+2025-09-08 18:11:25.519 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Appointments_AgentId` ON `Appointments` (`AgentId`);
+2025-09-08 18:11:25.522 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Appointments_ClientId` ON `Appointments` (`ClientId`);
+2025-09-08 18:11:25.524 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Appointments_PropertyId` ON `Appointments` (`PropertyId`);
+2025-09-08 18:11:25.527 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Appointments_ScheduledDate` ON `Appointments` (`ScheduledDate`);
+2025-09-08 18:11:25.531 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Appointments_Status` ON `Appointments` (`Status`);
+2025-09-08 18:11:25.534 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_AspNetRoleClaims_RoleId` ON `AspNetRoleClaims` (`RoleId`);
+2025-09-08 18:11:25.539 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX `RoleNameIndex` ON `AspNetRoles` (`NormalizedName`);
+2025-09-08 18:11:25.541 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_AspNetUserClaims_UserId` ON `AspNetUserClaims` (`UserId`);
+2025-09-08 18:11:25.543 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_AspNetUserLogins_UserId` ON `AspNetUserLogins` (`UserId`);
+2025-09-08 18:11:25.545 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_AspNetUserRoles_RoleId` ON `AspNetUserRoles` (`RoleId`);
+2025-09-08 18:11:25.551 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `EmailIndex` ON `AspNetUsers` (`NormalizedEmail`);
+2025-09-08 18:11:25.557 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX `UserNameIndex` ON `AspNetUsers` (`NormalizedUserName`);
+2025-09-08 18:11:25.563 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Properties_AgentId` ON `Properties` (`AgentId`);
+2025-09-08 18:11:25.569 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Properties_City_State` ON `Properties` (`City`, `State`);
+2025-09-08 18:11:25.573 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Properties_Price` ON `Properties` (`Price`);
+2025-09-08 18:11:25.579 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Properties_PropertyType` ON `Properties` (`PropertyType`);
+2025-09-08 18:11:25.583 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_Properties_Status` ON `Properties` (`Status`);
+2025-09-08 18:11:25.586 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_PropertyImages_PropertyId` ON `PropertyImages` (`PropertyId`);
+2025-09-08 18:11:25.587 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_PropertyViews_PropertyId` ON `PropertyViews` (`PropertyId`);
+2025-09-08 18:11:25.590 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_PropertyViews_UserId` ON `PropertyViews` (`UserId`);
+2025-09-08 18:11:25.591 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX `IX_PropertyViews_ViewedAt` ON `PropertyViews` (`ViewedAt`);
+2025-09-08 18:11:25.597 +05:30 [INF] User profile is available. Using '/Users/dulajupananda/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-09-08 18:11:25.617 +05:30 [INF] Now listening on: http://localhost:5052
+2025-09-08 18:11:25.617 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-09-08 18:11:25.618 +05:30 [INF] Hosting environment: Development
+2025-09-08 18:11:25.618 +05:30 [INF] Content root path: /Users/dulajupananda/Documents/Projects/Real-Estate-SaaS/server/RealEstateAPI

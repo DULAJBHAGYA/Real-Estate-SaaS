@@ -1,0 +1,148 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/dulajupananda/Documents/Projects/Real-Estate-SaaS/server/RealEstate.Persistence/RealEstate.Persistence.csproj": {}
+  },
+  "projects": {
+    "/Users/dulajupananda/Documents/Projects/Real-Estate-SaaS/server/RealEstate.Domain/RealEstate.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dulajupananda/Documents/Projects/Real-Estate-SaaS/server/RealEstate.Domain/RealEstate.Domain.csproj",
+        "projectName": "RealEstate.Domain",
+        "projectPath": "/Users/dulajupananda/Documents/Projects/Real-Estate-SaaS/server/RealEstate.Domain/RealEstate.Domain.csproj",
+        "packagesPath": "/Users/dulajupananda/.nuget/packages/",
+        "outputPath": "/Users/dulajupananda/Documents/Projects/Real-Estate-SaaS/server/RealEstate.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/dulajupananda/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.109/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/dulajupananda/Documents/Projects/Real-Estate-SaaS/server/RealEstate.Persistence/RealEstate.Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dulajupananda/Documents/Projects/Real-Estate-SaaS/server/RealEstate.Persistence/RealEstate.Persistence.csproj",
+        "projectName": "RealEstate.Persistence",
+        "projectPath": "/Users/dulajupananda/Documents/Projects/Real-Estate-SaaS/server/RealEstate.Persistence/RealEstate.Persistence.csproj",
+        "packagesPath": "/Users/dulajupananda/.nuget/packages/",
+        "outputPath": "/Users/dulajupananda/Documents/Projects/Real-Estate-SaaS/server/RealEstate.Persistence/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/dulajupananda/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/dulajupananda/Documents/Projects/Real-Estate-SaaS/server/RealEstate.Domain/RealEstate.Domain.csproj": {
+                "projectPath": "/Users/dulajupananda/Documents/Projects/Real-Estate-SaaS/server/RealEstate.Domain/RealEstate.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.109/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
