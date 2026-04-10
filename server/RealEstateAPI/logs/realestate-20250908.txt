@@ -950,3 +950,10 @@ WHERE `a`.`UserId` = @__userId_0
 2025-09-08 22:37:30.079 +05:30 [INF] Executed action RealEstateAPI.Controllers.AuthController.Logout (RealEstateAPI) in 0.6899ms
 2025-09-08 22:37:30.079 +05:30 [INF] Executed endpoint 'RealEstateAPI.Controllers.AuthController.Logout (RealEstateAPI)'
 2025-09-08 22:37:30.079 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/logout - 200 null application/json; charset=utf-8 38.3131ms
+2025-09-08 22:51:10.660 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/logout - application/json 16
+2025-09-08 22:51:10.662 +05:30 [INF] Executing endpoint 'RealEstateAPI.Controllers.AuthController.Logout (RealEstateAPI)'
+2025-09-08 22:51:10.663 +05:30 [INF] Route matched with {action = "Logout", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout(RealEstate.Application.DTOs.LogoutDto) on controller RealEstateAPI.Controllers.AuthController (RealEstateAPI).
+2025-09-08 22:51:10.666 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-09-08 22:51:10.666 +05:30 [INF] Executed action RealEstateAPI.Controllers.AuthController.Logout (RealEstateAPI) in 3.1192ms
+2025-09-08 22:51:10.667 +05:30 [INF] Executed endpoint 'RealEstateAPI.Controllers.AuthController.Logout (RealEstateAPI)'
+2025-09-08 22:51:10.667 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/logout - 200 null application/json; charset=utf-8 6.8677ms

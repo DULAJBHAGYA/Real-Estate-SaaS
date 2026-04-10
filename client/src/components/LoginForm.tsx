@@ -54,19 +54,19 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {error && (
-        <div className="bg-red-500/10 border border-red-500/20 text-red-300 px-4 py-3 rounded-xl text-sm backdrop-blur-sm">
-          <div className="flex items-center">
-            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-            </svg>
-            {error}
-          </div>
-        </div>
-      )}
+              {error && (
+                <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl text-sm">
+                  <div className="flex items-center">
+                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                    </svg>
+                    {error}
+                  </div>
+                </div>
+              )}
 
       <div className="space-y-2">
-        <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
+        <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
           Email Address
         </label>
         <div className="relative">
@@ -82,14 +82,14 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
             required
             value={formData.email}
             onChange={handleChange}
-            className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 backdrop-blur-sm"
+            className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-realestate-green focus:border-transparent transition-all duration-200"
             placeholder="Enter your email"
           />
         </div>
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="password" className="block text-sm font-semibold text-white mb-2">
+        <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
           Password
         </label>
         <div className="relative">
@@ -105,7 +105,7 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
             required
             value={formData.password}
             onChange={handleChange}
-            className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 backdrop-blur-sm"
+            className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-realestate-green focus:border-transparent transition-all duration-200"
             placeholder="Enter your password"
           />
         </div>
@@ -119,13 +119,13 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
             type="checkbox"
             checked={formData.rememberMe}
             onChange={handleChange}
-            className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded bg-white/10"
+            className="h-4 w-4 text-realestate-green focus:ring-realestate-green border-gray-300 rounded"
           />
-          <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-300">
+          <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-600">
             Remember me
           </label>
         </div>
-        <a href="#" className="text-sm text-blue-300 hover:text-blue-200 transition-colors">
+        <a href="#" className="text-sm text-realestate-green hover:text-realestate-green-dark transition-colors">
           Forgot password?
         </a>
       </div>
@@ -133,7 +133,7 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full flex justify-center items-center py-3 px-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+        className="w-full flex justify-center items-center py-3 px-4 bg-realestate-green hover:bg-realestate-green-dark text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
       >
         {isLoading ? (
           <>
