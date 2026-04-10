@@ -8,6 +8,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'realestate-green': '#309dbe',
+        'realestate-green-dark': '#2585a3',
+        'realestate-green-light': '#4ab3d1',
+      },
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'float-delayed': 'float 6s ease-in-out infinite 2s',
